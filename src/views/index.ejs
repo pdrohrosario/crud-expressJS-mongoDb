@@ -1,0 +1,22 @@
+<%- include('includes/head')%>
+<body>
+
+  <section class="container">
+    <h1> <!-- Escapa o html - %- -->
+      <% if (titulo) { %>
+        <%- titulo %>
+      <% } %>
+       
+    </h1>
+    <form method="post" action="/">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <h4>Cliente</h4>
+      <input type="text" name="cliente" placeholder="Olá"/>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </section>
+
+  <script src="./assets/js/bundle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+<% if, for ... %>
+<%= imprime escapando caracteres %>
+<%- Imprime sem escapar caracteres %>
+<%#caracteres %>
+<%- include('caminho/arquivo'); %>
