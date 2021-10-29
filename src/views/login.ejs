@@ -12,6 +12,8 @@
             Faça login ou crie sua conta abaixo.
           </p>
 
+          <%- include('includes/messages'); %>
+
           <div class="row">
             <div class="col-lg">
               <h4>Cadastro de Usuário:</h4>
@@ -30,7 +32,7 @@
               </form>
             </div>
 
-            <div class="col-lg">
+            <div class="col-lg my-md-5">
               <h4>Login:</h4>
               <h6>Caso você tenha uma conta, faça logincom seu email e senha.</h6>
               <form action="/login/login" method="POST" class="mt-3">

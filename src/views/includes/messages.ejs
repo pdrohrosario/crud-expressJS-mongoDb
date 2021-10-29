@@ -1,0 +1,23 @@
+<% if (errors && errors.length > 0) { %>
+    <div class="row">
+        <div class="col my-3">
+            <div class="alert alert-danger">
+                <% for (var i = 0; i < errors.length; i++) { %>
+                    <%= errors[i] %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+<% } %>
+
+<% if (success && success.length > 0) { %>
+    <div class="row">
+        <div class="col my-3">
+            <div class="alert alert-success" role="alert">
+                <% for (var i = 0; i < success.length; i++) { %>
+                    <%= success[i] %>
+                <% } %>      
+            </div>
+        </div>
+    </div>
+<% } %>
