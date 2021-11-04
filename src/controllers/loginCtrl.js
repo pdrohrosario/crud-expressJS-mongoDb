@@ -41,7 +41,8 @@ exports.login = async function (req, res) {
         }
 
         req.flash('success', "Você está logado.");
-            req.session.save(function () {
+        req.session.user = login.user;
+        req.session.save(function () {
                 return res.redirect('/login/index');
         });
         
