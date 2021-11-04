@@ -26,3 +26,26 @@ exports.register = async function (req, res) {
         res.render('404');
     }
 }
+
+exports.login = async function (req, res) {
+    try {
+        const login = new Login(req.body);
+        await login.login();
+
+        if (login.errors.length > 0) {
+            req.flash('errors', login.errors);
+            req.session.save(function () {
+                return res.redirect('/login/index');
+            });
+            return;
+        }
+
+        req.flash('success', "Você está logado.");
+            req.session.save(function () {
+                return res.redirect('/login/index');
+        });
+        
+    } catch (erro) {
+        res.render('404');
+    }
+}

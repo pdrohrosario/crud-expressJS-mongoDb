@@ -20,5 +20,6 @@ route.get('/',homeCtrl.index);
 //Rotas de log_info
 route.get('/login/index', loginCtrl.index);
 route.post('/login/register', loginCtrl.register);
+route.post('/login/login', loginCtrl.login);
 
 module.exports = route;
