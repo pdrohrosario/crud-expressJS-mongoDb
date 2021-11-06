@@ -21,3 +21,13 @@ exports.csrfMiddleware = function(req, res, next) {
 
     next();
 };
+
+exports.loginRequired = function(req, res, next) {
+    if(!req.session.user){
+        req.flash('errors','Vocẽ precisa fazer login.');
+        req.session.save(() => res.redirect('/'));
+        return;
+    }
+
+    next();
+}
