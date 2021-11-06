@@ -4,7 +4,7 @@ const ContatoSchema = new mongoose.Schema({
     nome:{type:String, required:true},
     sobrenome:{type:String, required:false, default:''},
     email:{type:String, required:false, default:''},
-    descricao:{type:String, required:false, default:''},
+    telefone:{type:String, required:false, default:''},
     criadoEm:{type:Date, default:Date.now()},
 });
 
@@ -34,7 +34,20 @@ Contato.buscaPorId = async function(id){
     return user;
 }
 
+Contato.prototype.edit = async function(id) {
+    if(typeof id !== "string"){
+        return;
+    }
+    this.validate();
+    if(this.errors.length > 0){
+        return;
+    }
+    this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, {new: true});
+}
+
 Contato.prototype.validate = function(){
+
+
     //Validate email e password;
     this.cleanUp();
 

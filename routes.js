@@ -29,5 +29,6 @@ route.get('/login/logout', loginCtrl.logout);
 route.get('/contato/index', loginRequired ,contatoCtrl.index);
 route.post('/contato/register', loginRequired ,contatoCtrl.register);
 route.get('/contato/index/:id', loginRequired ,contatoCtrl.editIndex);
+route.post('/contato/edit/:id', loginRequired ,contatoCtrl.edit);
 
 module.exports = route;
