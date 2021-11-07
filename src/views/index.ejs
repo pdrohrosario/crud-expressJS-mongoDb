@@ -13,30 +13,32 @@
       </p>
 
       <%- include('includes/messages')  %>
-
-      <div class="responsive-table">
-        <table class="table my-3">
-          <tr>
-            <td>Pedro</td>
-            <td>Rosário</td>
-            <td>99999999999999</td>
-            <td>pdrohrosario@gmail.com</td>
-          </tr>
-          <tr>
-            <td>Pedro</td>
-            <td>Rosário</td>
-            <td>99999999999999</td>
-            <td>pdrohrosario@gmail.com</td>
-          </tr>
-          <tr>
-            <td>Pedro</td>
-            <td>Rosário</td>
-            <td>99999999999999</td>
-            <td>pdrohrosario@gmail.com</td>
-          </tr>
-        </table>
-      </div>
-
+      <% if(contatos.length > 0){ %> 
+        <div class="responsive-table">
+          <table class="table my-3">
+            <th>
+              <td>Nome:</td>
+              <td>Sobrenome:</td>
+              <td>Telefone:</td>
+              <td>Email:</td>
+              <td></td>
+              <td></td>
+            </th>
+            <% contatos.forEach(contato => { %>
+              <tr>
+                <td><%= contato.nome %></td>
+                <td><%= contato.sobrenome %></td>
+                <td><%= contato.telefone %></td>
+                <td><%= contato.email %></td>
+                <td><a class="btn btn-outline-primary" href="contato/index/<%= contato._id %>">Editar</a></td>
+                <td><a class="btn btn-outline-danger" href="contato/delete/<%= contato._id %>">Delete</a></td>
+              </tr>
+            <% }); %>
+          </table>
+        </div>
+      <% } else { %>
+        <p class=""><h3 class="text-center lead font-weight">Não há contato cadastrados</h3></p>
+      <% } %>      
     </div>
     <div class="col-lg-2"></div>
   </div>
